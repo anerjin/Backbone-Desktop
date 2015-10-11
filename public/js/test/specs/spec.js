@@ -1,11 +1,11 @@
 // Jasmine Unit Testing Suite
 // --------------------------
-define(["jquery", "backbone", "text!templates/heading.html", "views/View","models/Model", "collections/Collection", "routers/DesktopRouter", "routers/MobileRouter", "jasminejquery"],
+define(["jquery", "backbone", "text!templates/desktop.html", "views/Desktop","models/Model", "collections/Collection", "routers/DesktopRouter", "jasminejquery"],
 
-    function($, Backbone, headerText, View, Model, Collection, DesktopRouter, MobileRouter) {
+    function($, Backbone, headerText, View, Model, Collection, DesktopRouter) {
 
-        // Test suite that includes all of the Jasmine unit tests   
-        describe("Backbone-Require-Boilerplate (BRB)", function() {
+        // Test suite that includes all of the Jasmine unit tests
+        describe("Backbone Desktop", function() {
 
             // Backbone View Suite: contains all tests related to views
             describe("Backbone views", function() {
@@ -118,40 +118,6 @@ define(["jquery", "backbone", "text!templates/heading.html", "views/View","model
 
         }); // End of the Desktop Router test suite
 
-        // Backbone Mobile Router Suite: contains all tests related to Mobile routers
-        describe("Backbone mobile routers", function () {
-
-            // Runs before every Mobile Router spec
-            beforeEach(function () {
-
-                // Stops the router from listening to hashchange events (Required because Backbone will only allow you to run Backbone.history.start() once for each page load.)
-                Backbone.history.stop();
-
-                // Instantiates a new Router instance
-                this.router = new MobileRouter();
-
-                // Creates a Jasmine spy
-                this.routeSpy = jasmine.createSpy("home");
-
-                // When the route index method is called, the Jasmine spy is also called
-                this.router.on("route:index", this.routeSpy);
-
-            });
-
-            it("should call the mobile router home method when there is no hash on the url", function() {
-
-                // Navigates to a different route
-                this.router.navigate("elsewhere");
-
-                // Navigates to the default route
-                this.router.navigate("", { trigger: true });
-
-                // Expects the Jasmine spy to have been called
-                expect(this.routeSpy).toHaveBeenCalled();
-
-            });
-
-        }); // End of the Mobile Router test suite
 
     }); // End of the BRB test suite
 
