@@ -127,18 +127,7 @@ module.exports = function(grunt) {
         // SERVER CONFIGURATION
         // ====================
 
-        var headers = {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Headers": "*"
-        };
-
-        // server.use(express.json()); // to support JSON-encoded bodies
-        // server.use(express.urlencoded()); // to support URL-encoded bodies
         server.use(express.static(path.join(__dirname, 'public')));
-        // server.use(server.router);
-        // server.use(express.bodyParser());
-
 
         // Start Node.js Server
         http.createServer(server).listen(port);
