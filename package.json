@@ -1,0 +1,49 @@
+{
+  "name": "Backbone-Desktop",
+  "title": "Desktop on Backbone",
+  "description": "A desktop feel built on top of Backbone and JQuery",
+  "version": "0.9.0",
+  "author": {
+    "name": "Tom Samczynski",
+    "email": "mrsamczynski@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:firebluetom/desktop.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "keywords": [
+    "Backbone.js",
+    "Desktop"
+  ],
+  "devDependencies": {
+    "express": "latest",
+    "grunt": "latest",
+    "grunt-template-jasmine-istanbul": "latest",
+    "grunt-template-jasmine-requirejs": "latest",
+    "grunt-contrib-connect": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-open": "latest",
+    "grunt-cucumber": "latest",
+    "grunt-contrib-requirejs": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-contrib-clean": "latest",
+    "grunt-contrib-compass": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-compress": "latest",
+    "grunt-postcss": "latest",
+    "chai": "latest",
+    "grunt-plato": "latest",
+    "grunt-karma": "latest",
+    "karma-coverage": "latest",
+    "webdriverjs": "latest",
+    "uglify-js": "latest",
+    "uglify-js2": "latest"
+  }
+}
