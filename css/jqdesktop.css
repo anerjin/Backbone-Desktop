@@ -1,0 +1,121 @@
+* {
+  cursor: default;
+  box-sizng: border-box;
+}
+
+html,
+body {
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+
+.header {
+  width: 100%;
+  display: block;
+  background: rgba(0, 0, 0, 0.8);
+  height: 50px;
+  z-index: 900;
+  position: relative;
+}
+
+.desktop {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: url("../images/misc/wallpaper.jpg") center center no-repeat;
+  background-size: cover;
+}
+.desktop .window {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 10%;
+  left: 10%;
+  border: 3px solid #bbb;
+  border-radius: 6px;
+}
+.desktop .window .window-top {
+  background: green;
+  color: white;
+  border-radius: 3px 3px 0px 0px;
+  border-bottom: 1px solid #bbb;
+  height: 20px;
+}
+.desktop .window .window-body {
+  background: #ddd;
+  color: black;
+  border-radius: 0px 0px 3px 3px;
+  height: calc(100% - 20px);
+}
+
+.taskbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid #ccc;
+  z-index: 900;
+  display: -webkit-flex;
+  display: flex;
+}
+.taskbar .drawerIcon {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-content: center;
+  align-content: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  transition: background 0.3s ease;
+}
+.taskbar .drawerIcon:hover {
+  background: black;
+}
+.taskbar .drawerIcon img {
+  width: 30px;
+}
+.taskbar .taskbarIcon {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-content: center;
+  align-content: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  top: 0;
+  left: 0;
+  position: relative;
+  transition: background 0.3s ease, height 0.3s ease, top 0.3s ease;
+}
+.taskbar .taskbarIcon:hover {
+  background: black;
+  height: 60px;
+  top: -10px;
+}
+.taskbar .taskbarIcon:hover .iconActiveColor {
+  height: 5px;
+  top: -5px;
+}
+.taskbar .taskbarIcon .iconActiveColor {
+  position: absolute;
+  height: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: height 0.3s ease, top 0.3s ease;
+}
+.taskbar .taskbarIcon img {
+  width: 25px;
+}
