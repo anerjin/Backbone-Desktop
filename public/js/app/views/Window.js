@@ -1,6 +1,6 @@
-define(["backbone", "models/Model", "text!templates/window.html", "handlebars"],
+define(["jquery", "backbone", "../models/Model", "../templates/window.html"],
 
-    function(Backbone, Model, template, Handlebars) {
+    function($, Backbone, Model, template) {
 
         return Backbone.View.extend({
 
@@ -87,8 +87,7 @@ define(["backbone", "models/Model", "text!templates/window.html", "handlebars"],
             // Renders the view's template to the UI
             render: function() {
 
-                var temp = Handlebars.compile(template);
-                temp = temp(this.model.toJSON());
+                temp = template(this.model.toJSON());
 
                 // Dynamically updates the UI with the view's template
                 this.$el.html(temp);

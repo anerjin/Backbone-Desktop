@@ -36,16 +36,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-        plato: {
-            your_task: {
-                options: {
-                    exclude: /\.min\.js$/ // excludes source files finishing with ".min.js"
-                },
-                files: {
-                    'public/reports': ['public/js/app/**/*.js']
-                }
-            }
-        },
         watch: {
             scss: {
                 files: ["**/*.scss"],
@@ -101,7 +91,6 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-plato');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-open');
@@ -109,9 +98,8 @@ module.exports = function(grunt) {
 
     grunt.registerTask('test', ['jshint']);
     grunt.registerTask('minify', ['requirejs:desktopJS']);
-    grunt.registerTask('complexity:report', 'plato');
     grunt.registerTask('build', ['desktopBuild']);
-    grunt.registerTask('default', ['test', 'build', 'complexity:report', 'run']);
+    grunt.registerTask('default', ['test', 'build', 'run']);
 
     grunt.registerTask('run', ['server', 'open', 'watch']);
 

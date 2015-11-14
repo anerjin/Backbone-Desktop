@@ -2,13 +2,10 @@
 // --------------
 
 // Includes Desktop Specific JavaScript files here (or inside of your Desktop router)
-require(["jquery", "backbone", "routers/DesktopRouter", "jqueryui", "underscore", "handlebars"],
+require(["../routers/DesktopRouter"],
 
-  function($, Backbone, DesktopRouter, jqueryui, _, handlebars) {
+  function(DesktopRouter) {
 
-    _.templateSettings = {
-      interpolate: /\{\{(.+?)\}\}/g
-    };
     // Instantiates a new Desktop Router instance
     new DesktopRouter();
 

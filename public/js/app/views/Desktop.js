@@ -1,5 +1,5 @@
-define(["jquery", "backbone", "models/Model", "text!templates/desktop.html", "workers/DesktopWorker"],
-    function($, Backbone, Model, template, DesktopWorker) {
+define(["jquery", "backbone", "../templates/desktop.html", "../workers/DesktopWorker", 'jquery-ui'],
+    function($, Backbone, template, DesktopWorker, jqueryui) {
 
         var Desktop = Backbone.View.extend({
 
@@ -12,34 +12,22 @@ define(["jquery", "backbone", "models/Model", "text!templates/desktop.html", "wo
                 // Calls the view's render method
                 this.render();
 
-                // this.loadIcons();
-
-                this.$el.find('.desktop-wrap').selectable({
-                    filter: "a"
-                });
+                // this.$el.find('.desktop-wrap').selectable({
+                //     filter: "a"
+                // });
 
                 this.desktopWorker = new DesktopWorker({view: this});
-
-                // this.desktopWorker.addIconToDesktop('newWindow');
-
-                // this.desktopWorker.addWindow();
             },
 
             // View Event Handlers
             events: {
                 'click a': 'handleAnchor',
-                // 'mousedown a.menu_trigger': 'handleMenuTrigger',
                 'mouseenter div.window': 'draggableWindow', // make window draggable
                 'mousedown div.window': 'mouseOnWindow', // Focus active window.
                 'dblclick a.icon': 'doubleClickIcon',
                 'mousedown a.icon': 'highlightIcon',
                 'mouseenter a.icon': 'makeIconDraggable',
                 'mouseenter a.menu_trigger': 'transferFocus',
-                // 'click #dock a': 'taskbar',
-                // 'dblclick div.window_top': 'fullscreen',
-                // 'click a.window_min': 'minimizeWindow',
-                // 'click a.window_resize': 'resizeWindow',
-                // 'click a.window_close': 'closeWindow',
                 'mousedown #show_desktop': 'showDesktop',
                 'click .drawer-icon': 'showDrawer'
             },
@@ -171,11 +159,10 @@ define(["jquery", "backbone", "models/Model", "text!templates/desktop.html", "wo
             // Renders the view's template to the UI
             render: function() {
 
-                // Setting the view's template property using the Underscore template method
-                this.template = _.template(template, {});
+                var temp = template();
 
                 // Dynamically updates the UI with the view's template
-                this.$el.html(this.template);
+                this.$el.html(temp);
 
                 // Maintains chainability
                 return this;

@@ -1,8 +1,8 @@
 // DesktopRouter.js
 // ----------------
-define(["jquery", "backbone", "models/Model", "views/Desktop", "collections/Collection"],
+define(["backbone", "../views/Desktop"],
 
-    function($, Backbone, Model, View, Collection) {
+    function(Backbone, Desktop) {
 
         var DesktopRouter = Backbone.Router.extend({
 
@@ -23,8 +23,8 @@ define(["jquery", "backbone", "models/Model", "views/Desktop", "collections/Coll
 
             index: function() {
 
-                // Instantiates a new view which will render the header text to the page
-                new View();
+                // Instantiates a new view which will render the desktop
+                new Desktop();
 
             }
 

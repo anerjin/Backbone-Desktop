@@ -1,4 +1,4 @@
-define(["jquery", "backbone", "views/Window"],
+define(["jquery", "backbone", "../views/Window"],
     function($, Backbone, Window) {
 
         // a worker here is a model, a view should delegate work to a worker
