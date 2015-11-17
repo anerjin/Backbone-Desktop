@@ -1,10 +1,13 @@
 var gulp = require('gulp'),
     watch = require('gulp-watch'),
     jshint = require('gulp-jshint')
-    webpack = require('gulp-webpack');
+    webpack = require('gulp-webpack'),
+    minifyCss = require('gulp-minify-css'),
+    concat = require('gulp-concat'),
+    sass = require('gulp-sass');
 
 
-gulp.task('default', ['lint', 'server', 'webpack']);
+gulp.task('default', ['lint', 'server', 'webpack', 'sass']);
 
 
 gulp.task('lint', function(){
@@ -35,18 +38,28 @@ gulp.task('server', ['lint'], function(){
 
 gulp.task('webpack', function(){
     return gulp.src('public/js/app/init/DesktopInit.js')
-      .pipe(webpack({
-        watch: true,
-        module: {
-          loaders: [
-            { test: /\.css$/, loader: 'style!css' },
-            // { test: /\.html$/, loader: "text-loader" },
-            { test: /\.html$/, loader: "handlebars-loader" }
-          ],
-        },
-        output: {
-            filename: 'DesktopInit.min.js'
-        }
-      }))
-      .pipe(gulp.dest('public/'));
+        .pipe(webpack({
+            watch: true,
+            module: {
+              loaders: [
+                { test: /\.css$/, loader: 'style!css' },
+                // { test: /\.html$/, loader: "text-loader" },
+                { test: /\.html$/, loader: "handlebars-loader" }
+              ],
+            },
+            output: {
+                filename: 'DesktopInit.min.js'
+            }
+        }))
+        .pipe(gulp.dest('public/'));
+});
+
+gulp.task('sass', function () {
+    gulp.src(['public/**/*.scss', 'public/css/lib/**/*.css'])
+    .pipe(sass().on('error', sass.logError))
+    .pipe(minifyCss({compatibility: 'ie8'}))
+    .pipe(concat('desktop.min.css'))
+    .pipe(gulp.dest('public/css'));
+
+    gulp.watch('public/**/*.scss', ['sass']);
 });
